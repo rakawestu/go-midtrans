@@ -138,6 +138,13 @@ type ConvStoreDetail struct {
 	Message string `json:"message"`
 }
 
+type SnapCreditCardDetail struct {
+	Secure   bool `json:"secure"`
+	Channel  bool `json:"channel"`
+	Bank     bool `json:"bank"`
+	SaveCard bool `json:"save_card"`
+}
+
 // Represent the request payload
 type ChargeReq struct {
 	PaymentType        PaymentType        `json:"payment_type"`
@@ -163,13 +170,14 @@ type ChargeReq struct {
 }
 
 type SnapReq struct {
-	TransactionDetails TransactionDetails `json:"transaction_details"`
-	EnabledPayments    []PaymentType      `json:"enabled_payments"`
-	Items              *[]ItemDetail      `json:"item_details,omitempty"`
-	CustomerDetail     *CustDetail        `json:"customer_details,omitempty"`
-	CustomField1       string             `json:"custom_field1"`
-	CustomField2       string             `json:"custom_field2"`
-	CustomField3       string             `json:"custom_field3"`
+	TransactionDetails TransactionDetails    `json:"transaction_details"`
+	CreditCard         *SnapCreditCardDetail `json:"credit_card,omitempty"`
+	EnabledPayments    []PaymentType         `json:"enabled_payments"`
+	Items              *[]ItemDetail         `json:"item_details,omitempty"`
+	CustomerDetail     *CustDetail           `json:"customer_details,omitempty"`
+	CustomField1       *string               `json:"custom_field1,omitempty"`
+	CustomField2       *string               `json:"custom_field2,omitempty"`
+	CustomField3       *string               `json:"custom_field3,omitempty"`
 }
 
 type CaptureReq struct {
