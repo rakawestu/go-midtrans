@@ -139,10 +139,10 @@ type ConvStoreDetail struct {
 }
 
 type SnapCreditCardDetail struct {
-	Secure   bool `json:"secure"`
-	Channel  bool `json:"channel"`
-	Bank     bool `json:"bank"`
-	SaveCard bool `json:"save_card"`
+	Secure   bool    `json:"secure"`
+	Channel  *string `json:"channel"`
+	Bank     *string `json:"bank"`
+	SaveCard *bool   `json:"save_card"`
 }
 
 // Represent the request payload
